@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Would You Have Survived in Titanic?</title>
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+    <h1 id="headline">Would You Have Survived in Titanic? </h1>
+    <form class="inputform" action="{{ url_for('predict')}}" method="post">
+        <label class="label">Age: </label>
+        <input type="number" class="inputbox" name="age" id="age" min="0",max="80",placeholder="please input your age" required="required"/><br>
+        <label class="label">Sex: </label>
+        <select class="inputbox" name ="sex" id="sex" placeholder="please select your sex">
+            <option disabled selected value>-- select an option --</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select><br>
+        <label class="label">Health: </label>
+        <select class="inputbox" name ="health" id="health" placeholder="please select your sex">
+            <option disabled selected value>-- select an option --</option>
+            <option value="weak">weak</option>
+            <option value="healthy">healthy</option>
+            <option value="athletic">athletic</option>
+            <option value="overweight">overweight</option>
+        </select><br>
+
+        <label class="label">TicketClass: </label>
+        <select class="inputbox" name="class" id="class" placeholder="please select the ticket class you'd like to buy (higher number means higher class)">
+            <option disabled selected value>-- select an option --</option>
+            <option value="Pclass_1">Class_1 (Upper) </option>
+            <option value="Pclass_2">Class_2 (Middle) </option>
+            <option value="Pclass_3">Class_3 (Lower) </option>
+        </select><br>
+
+    <button id="submit" type="submit">Submit</button>
+    </form>
+    <h2>{{ prediction_text }}</h2>
+</body>
+</html>
